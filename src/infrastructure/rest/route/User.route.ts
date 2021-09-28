@@ -26,5 +26,19 @@ export class UserRoute {
         (req, res, next) => ACLMiddleware.execute(UserRole.employee, req, res, next),
         (req, res) => this.userController.getAll(req, res)
       );
+    this
+      .router
+      .route('/')
+      .post(
+        (req, res, next) => ACLMiddleware.execute(UserRole.employee, req, res, next),
+        (req, res) => this.userController.create(req, res)
+      );
+    this
+      .router
+      .route('/')
+      .put(
+        (req, res, next) => ACLMiddleware.execute(UserRole.employee, req, res, next),
+        (req, res) => this.userController.save(req, res)
+      );
   }
 }

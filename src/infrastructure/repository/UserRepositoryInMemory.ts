@@ -5,7 +5,7 @@ import { Email } from "../../domain/vo/Email";
 import { UserRole } from "../../domain/vo/UserRole";
 import { PasswordCryptorImpl } from "../security/PasswordCryptorImpl";
 
-export class UserRepositoryInMemory implements UserRepository {
+class UserRepositoryInMemory implements UserRepository {
 
   private readonly users = new Array<User>();
 
@@ -75,3 +75,5 @@ export class UserRepositoryInMemory implements UserRepository {
     return userExists !== undefined;
   }
 }
+
+export default new UserRepositoryInMemory();
